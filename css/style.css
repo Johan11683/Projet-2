@@ -74,6 +74,14 @@ h1 {
     margin-bottom: 0px;
 }
 
+h2 {
+    font-family: Raleway;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.13px;
+    letter-spacing: 0%;
+}
+
 p {
     font-family: Raleway;
     font-weight: 400px;
@@ -84,11 +92,13 @@ p {
 
 /**** Header ****/
 /*espacement entre le logo et les liens de navigation dans le header*/
-header nav {
+
+nav {
     display: flex;
     align-items: center ;
     justify-content: space-between;
     margin-bottom: 40px;
+    position: relative;
 }
 
 /*emplacement et taille des liens de navigations en haut à droite*/
@@ -96,33 +106,31 @@ header nav {
     display: flex;
     justify-content: flex-end; /* Aligne les éléments à droite */
     align-items: flex-start; /* Aligne les éléments en haut */
-    width: 244px;
-    height: 35px;
     gap: 68px;
+    
 }
 
 /*propriétés des liens dans le header*/
-header a {
-    text-decoration: none;
-    color: black;
-    padding: 8px 0;
-    border-top: 2px solid transparent; /* Bordure invisible par défaut */
+
+/* Barre bleue et texte bleu au survol */
+.hebergementsEtActivités a:hover {
+    color: #0065FC; /* Le texte devient bleu au survol */
 }
 
-nav p {
-    padding: 0; /*empeche le decalage du texte au survol*/
-    margin: 0; /*empeche le decalage du texte au survol*/
-}
-
-/*barre bleue au survol dans le header*/
-header a:hover {
-    color: #0065FC;
-    border-top: 2px solid #0065FC; /* Bordure bleue au survol */
+/* Barre bleue au-dessus au survol */
+.hebergementsEtActivités a:hover::before {
+    content: ""; /* Nécessaire pour afficher la pseudo-élément */
+    position: absolute;
+    top: -6px; /* Positionner la barre en haut */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Hauteur de la barre */
+    background-color: #0065FC; /* Couleur de la barre */
 }
 
 /*logo booki*/
 .logoBooki {
-    width: 61.089656829833984px;
+    width: 61px;
     height: 19px;
 }
 
@@ -233,6 +241,51 @@ header a:hover {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/*** Partie filtres ***/
+
+.sectionFiltres {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteneurFiltres {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap : 15px;
+    align-items: center;   
+}
+
+/* Propriétés des boutons*/
+.bouton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    height: 50px;
+    padding: 4px 19px;
+
+    border: 2px solid #D9D9D9;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000;
+
+}
+
+.conteneurFiltres button i {
+    font-size: 22px;
+}
+
+.bouton:hover {
+    background-color: var(--filter-bg-color);
 }
 
 /****** Hebergements And Populaires ***********/
@@ -374,40 +427,7 @@ header a:hover {
     display: inline;
 }
 
-.conteneurFiltres {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-    gap : 15px;
-    align-items: center;
 
-    width: 758px;
-    height: 50px;
-}
-
-.bouton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    height: 50px;
-    padding: 4px 19px;
-
-    border: 2px solid #D9D9D9;
-    border-radius: 25px;
-    background-color: #FFFFFF;
-
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    color: #000;
-
-}
-
-.bouton:hover {
-    background-color: var(--filter-bg-color);
-}
 
 /***** Activités à Marseille *****/
 
@@ -532,11 +552,87 @@ header a:hover {
     }
 }
 
-/* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-    a:hover {
-        text-decoration: underline #0065FC;
+
+    .main-container { /*prend toute la largeur de l'écran pour un meilleur affichage mobile*/
+        padding: 0;
     }
+
+    h1 {
+        margin-top: 20px;
+    }
+
+/*** Partie responsive nav ***/
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .logoBooki {
+        margin-bottom: 20px; /* Espacement avec les liens */
+    }
+
+    /* Pour centrer les liens sur mobile */
+    .hebergementsEtActivités {
+        display: flex;
+        justify-content: space-around; /* Centrer les éléments horizontalement */
+        align-items: center; /* Centrer verticalement */
+        width: 100%; /* S'assure que l'élément prend toute la largeur disponible */
+        gap: 0; /* Retire l'espacement si nécessaire pour éviter tout décalage */
+        position: relative; /* Pour positionner les barres en bas */
+    }
+
+
+
+    /* Propriétés des liens dans le header */
+    .hebergementsEtActivités a {
+        text-decoration: none; /* Pour enlever le soulignement des liens */
+        color: black; /* Change la couleur des liens */
+        position: relative; /* Nécessaire pour positionner la barre au-dessus */
+        flex: 1; /* Permet à chaque lien de prendre une largeur équivalente */
+        text-align: center; /* Centre le texte dans chaque lien */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hebergementsEtActivités a:hover::before {
+        display: none; /* Ne pas afficher la barre bleue du dessus sur mobile */
+    }
+
+    /* Les deux barres grises prennent chacune 50% de la largeur */
+    .barre-grise-gauche, .barre-grise-droite {
+        position: absolute;
+        bottom: 0;
+        height: 3px; /* Hauteur de la barre */
+        background-color: #f2f2f2; /* Couleur grise */
+        width: 50%; /* Chaque barre grise prend 50% de la largeur */
+    }
+
+    /* Barre à gauche */
+    .barre-grise-gauche {
+        left: 0; /* La barre est positionnée à gauche */
+    }
+
+    /* Barre à droite */
+    .barre-grise-droite {
+        right: 0; /* La barre est positionnée à droite */
+    }
+
+    /* Lorsqu'on survole "Hébergements", la barre de gauche devient bleue */
+    .hebergement-link:hover ~ .barre-grise-gauche { /** l'utilisation de "~" permet de prendre un élément frère, au lieu d'un enfant**/
+        background-color: #0065FC; /* Couleur bleue */
+    }
+
+    /* Lorsqu'on survole "Activités", la barre de droite devient bleue */
+    .activites-link:hover ~ .barre-grise-droite {
+        background-color: #0065FC; /* Couleur bleue */
+    }
+    
+
+    /*** Partie responsive barre de recherche ***/
 
     .loupe-icon {
         display: inline-block;  /* Afficher l'icône sur mobile */
@@ -545,7 +641,37 @@ header a:hover {
     .text-button {
         display: none;  /* Cacher le texte sur mobile */
     }
-}
 
+    .search-bar {
+    width: 335px;
+    height: 49px;
+    border-radius: 15px;
+    border-width: 1px;
+
+    }
+
+    .search-bar button {
+        width: 49px;
+        height: 49px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px 0px #00000040;
+
+    }
+
+    .conteneurFiltres button {
+        width: 47%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+    
+    .conteneurFiltres button i {
+        font-size: 22px;
+    }
+
+    
+    
+
+}
 
     /* ... */
