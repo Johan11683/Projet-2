@@ -13,6 +13,16 @@
     color: var(--main-color);
 }
 
+.textInfo .borderIcon {
+    height: 25px;
+    width: 25px;
+    border: 2px solid #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
 
 body {
     display: flex;
@@ -26,6 +36,7 @@ body {
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
+    margin: auto;
     box-sizing: border-box;
 }
 
@@ -106,26 +117,17 @@ nav {
     display: flex;
     justify-content: flex-end; /* Aligne les éléments à droite */
     align-items: flex-start; /* Aligne les éléments en haut */
-    gap: 68px;
-    
+    gap: 30px;
 }
+
 
 /*propriétés des liens dans le header*/
 
 /* Barre bleue et texte bleu au survol */
 .hebergementsEtActivités a:hover {
     color: #0065FC; /* Le texte devient bleu au survol */
-}
-
-/* Barre bleue au-dessus au survol */
-.hebergementsEtActivités a:hover::before {
-    content: ""; /* Nécessaire pour afficher la pseudo-élément */
-    position: absolute;
-    top: -6px; /* Positionner la barre en haut */
-    left: 0;
-    width: 100%;
-    height: 2px; /* Hauteur de la barre */
-    background-color: #0065FC; /* Couleur de la barre */
+    border-top: 2px solid #0065FC; /* Bordure bleue au survol */
+    margin-top: -2px;
 }
 
 /*logo booki*/
@@ -247,7 +249,6 @@ nav {
 
 .sectionFiltres {
     display: flex;
-    flex-direction: column;
 }
 
 .conteneurFiltres {
@@ -598,8 +599,12 @@ nav {
         align-items: center;
     }
 
-    .hebergementsEtActivités a:hover::before {
-        display: none; /* Ne pas afficher la barre bleue du dessus sur mobile */
+  
+
+    .hebergementsEtActivités a:hover {
+        border-top: none;
+        padding-top: 2px; /* empêche le décalage du texte au survol*/
+        
     }
 
     /* Les deux barres grises prennent chacune 50% de la largeur */
@@ -643,13 +648,13 @@ nav {
     }
 
     .search-bar {
-    width: 335px;
-    height: 49px;
-    border-radius: 15px;
-    border-width: 1px;
-
-    }
-
+        width: 335px;
+        height: 49px;
+        border-radius: 15px;
+        border-width: 1px;
+    
+        }
+    
     .search-bar button {
         width: 49px;
         height: 49px;
@@ -668,6 +673,8 @@ nav {
     .conteneurFiltres button i {
         font-size: 22px;
     }
+    
+  
 
     
     
