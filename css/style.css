@@ -368,11 +368,6 @@ nav {
     margin-bottom: 5px;
 }
 
-.more-title {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
 
 /****** Populaires ***********/
 .populaires {
@@ -432,6 +427,9 @@ nav {
     display: inline;
 }
 
+.more-title h2 {
+    margin-top: 33px;
+}
 
 
 /***** Activités à Marseille *****/
@@ -439,7 +437,11 @@ nav {
 .activitesMars {
     display: flex;
     flex-direction: column;
-    padding: 30px;
+}
+
+.activitesMars h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /* Conteneur principal des cartes */
@@ -561,7 +563,17 @@ nav {
 
     .main-container { /*prend toute la largeur de l'écran pour un meilleur affichage mobile*/
         padding: 0;
+        
     }
+
+    body {
+        margin: 0;
+    }
+    
+    .infoGroup, .textInfo {
+        margin: 8px;
+    }
+
 
     h1 {
         margin-top: 20px;
@@ -693,6 +705,52 @@ nav {
         display: flex;
         flex-wrap: wrap;
     }
+
+    .hebergements-and-populaires {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+
+
+    
+    .hebergements-and-populaires .populaires-cards {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+    }
+    .hebergements-and-populaires section {
+        border-radius: 0;
+        padding: 30px 20px;
+        margin-top: 15px;
+    }
+
+    .hebergements-and-populaires a {
+        width: 100%;
+    }
+
+    .hebergements-and-populaires .hebergements {
+        background-color: #FFFFFF;
+        margin-top: 0;
+    }
+
+    .more-title h2 {
+        margin-top: 15px;
+    }
+
+    .activitesMars .cardContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .activitesMars a {
+        max-width:max-content;
+        flex: 1;
+    }
+
+    
 
 
 }
