@@ -13,17 +13,9 @@
     color: var(--main-color);
 }
 
-.textInfo .borderIcon {
-    min-height: 25px;
-    min-width: 25px;
-    border: 2px solid #F2F2F2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
 
 
+/*site centré*/
 body {
     display: flex;
     flex-direction: column;
@@ -31,8 +23,17 @@ body {
     
 }
 
+.main-box {
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+}
+
 /*conteneur qui prend toute la page*/
 .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
@@ -82,7 +83,7 @@ h1 {
     font-size: 22px;
     line-height: 25.83px;
     letter-spacing: 0%;
-    margin-bottom: 0px;
+    margin:0;
 }
 
 h2 {
@@ -105,9 +106,10 @@ h3 {
 p {
     font-family: Raleway;
     font-weight: 400px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 18.78px;
     letter-spacing: 0%;
+    margin: 0;
 }
 
 /**** Header ****/
@@ -117,18 +119,22 @@ nav {
     display: flex;
     align-items: center ;
     justify-content: space-between;
-    margin-bottom: 40px;
+    width: 100%;
     position: relative;
 }
+
 
 /*emplacement et taille des liens de navigations en haut à droite*/
 .hebergementsEtActivités { 
     display: flex;
-    justify-content: flex-end; /* Aligne les éléments à droite */
-    align-items: flex-start; /* Aligne les éléments en haut */
+    margin-left: auto;
     gap: 30px;
 }
 
+/* Cache sur desktop les deux barres grises affichées sur mobile*/
+.barre-grise-droite, .barre-grise-gauche {
+    display: none;
+}
 
 /*propriétés des liens dans le header*/
 
@@ -149,14 +155,14 @@ nav {
 .infoGroup {
     display:flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 35px;
 }
 
 /*h1 et paragraphe dans la partie informative*/
 .headInfo {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 8px;
 }
 
 /**Barre de recherche**/
@@ -257,11 +263,26 @@ nav {
     display: inline;
 }
 
-/*logo i + texte*/
+/* Texte + le logo i */
 .textInfo {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/*logo i entouré*/
+.textInfo .borderIcon {
+    min-height: 24px;
+    min-width: 24px;
+    border: 2px solid #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.fa-info {
+    font-size: 11px;
 }
 
 /*** Partie filtres ***/
@@ -271,16 +292,13 @@ nav {
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 20px;
     gap : 15px;
 }
 
 .filtreBox {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    gap : 15px;
+    gap: 15px;
 }
 
 
@@ -291,14 +309,11 @@ nav {
     justify-content: center;
     flex-wrap: nowrap;
     gap: 10px;
-
     height: 50px;
     padding: 4px 19px;
-
     border: 2px solid #D9D9D9;
     border-radius: 25px;
     background-color: #FFFFFF;
-
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 17px;
@@ -316,6 +331,7 @@ nav {
 .hebergements-and-populaires {
     display: flex;
     justify-content: space-between;
+    gap: 40px;
 }
 
 .hebergements-and-populaires section {
@@ -330,9 +346,9 @@ nav {
 /*gros cadre qui prend les 6 sous cadres*/
 
 .hebergements {
-    width: 65%;
+    width: 68%;
+    gap:30px;
 }
-
 
 /* Premiere card */
 
@@ -445,7 +461,6 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 30px;
-    margin-bottom: 35px;
 }
 
 .activitesMars h1{
@@ -580,6 +595,10 @@ nav {
         margin: 8px;
     }
 
+    header {
+        margin-top: 8px;
+    }
+
 
     h1 {
         margin-top: 20px;
@@ -631,6 +650,7 @@ nav {
 
     /* Les deux barres grises prennent chacune 50% de la largeur */
     .barre-grise-gauche, .barre-grise-droite {
+        display: inline;
         position: absolute;
         bottom: 0;
         height: 3px; /* Hauteur de la barre */
