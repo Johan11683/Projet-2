@@ -83,7 +83,7 @@ h1 {
     font-size: 22px;
     line-height: 25.83px;
     letter-spacing: 0%;
-    margin:0;
+    margin:0; /*provoque des décalages sinon */
 }
 
 h2 {
@@ -115,19 +115,20 @@ p {
 /**** Header ****/
 /*espacement entre le logo et les liens de navigation dans le header*/
 
-nav {
+.nav-container {
     display: flex;
-    align-items: center ;
+    align-items: flex-start ;
     justify-content: space-between;
     width: 100%;
     position: relative;
+    margin-top: -6px; /* fait remonter le sur-conteneur des liens de navigation pour que la barre touche le bord de l'écran*/
 }
 
 
 /*emplacement et taille des liens de navigations en haut à droite*/
 .hebergementsEtActivités { 
     display: flex;
-    margin-left: auto;
+    align-items: flex-start;
     gap: 30px;
 }
 
@@ -142,14 +143,25 @@ nav {
 .hebergementsEtActivités a:hover {
     color: #0065FC; /* Le texte devient bleu au survol */
     border-top: 2px solid #0065FC; /* Bordure bleue au survol */
-    margin-top: -2px;
+    margin-top: -2px; /* évite le décalage de texte au survol */
+}
+
+.hebergementsEtActivités p {
+    margin-top: 8px; /* Abaisse les liens de navigations pour qu'ils ne soient pas trop proche de l'écran*/
+}
+
+.logoBooki {
+    display: flex;
+    align-items: center;
+    height: 79px;
 }
 
 /*logo booki*/
-.logoBooki {
+.logoBooki img {
     width: 61px;
     height: 19px;
 }
+
 
 /***groupe qui va du header aux hebergements et qui contient : h1+p+barre de recherche+filtres+i informatif***/
 .infoGroup {
@@ -330,7 +342,6 @@ nav {
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex;
-    justify-content: space-between;
     gap: 40px;
 }
 
@@ -346,8 +357,7 @@ nav {
 /*gros cadre qui prend les 6 sous cadres*/
 
 .hebergements {
-    width: 68%;
-    gap:30px;
+    width: 68%;;
 }
 
 /* Premiere card */
@@ -592,7 +602,8 @@ nav {
     }
     
     .infoGroup, .textInfo {
-        margin: 8px;
+        margin-left: 8px;
+        margin-right: 8px;
     }
 
     header {
@@ -600,20 +611,19 @@ nav {
     }
 
 
-    h1 {
-        margin-top: 20px;
-    }
-
 /*** Partie responsive nav ***/
 
-    nav {
+    .nav-container {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 0;
     }
 
-    .logoBooki {
-        margin-bottom: 20px; /* Espacement avec les liens */
+    .nav-container a {
+        margin-bottom: 8px;
+    }
+
+    .main-box {
+        gap: 15px;
     }
 
     /* Pour centrer les liens sur mobile */
@@ -640,12 +650,9 @@ nav {
         align-items: center;
     }
 
-  
-
     .hebergementsEtActivités a:hover {
         border-top: none;
         padding-top: 2px; /* empêche le décalage du texte au survol*/
-        
     }
 
     /* Les deux barres grises prennent chacune 50% de la largeur */
@@ -678,7 +685,6 @@ nav {
         background-color: #0065FC; /* Couleur bleue */
     }
     
-
     /*** Partie responsive barre de recherche ***/
 
     .loupe-icon {
@@ -694,7 +700,6 @@ nav {
         height: 49px;
         border-radius: 15px;
         border-width: 1px;
-    
         }
     
     .search-bar button {
@@ -702,7 +707,6 @@ nav {
         height: 49px;
         border-radius: 15px;
         box-shadow: 0px 4px 4px 0px #00000040;
-
     }
 
     .conteneurFiltres {
@@ -735,11 +739,9 @@ nav {
     .hebergements-and-populaires {
         display: flex;
         flex-direction: column-reverse;
-        padding: 0;
+        gap :15px
     }
 
-
-    
     .hebergements-and-populaires .populaires-cards {
         display: flex;
         flex-direction: column;
@@ -750,6 +752,7 @@ nav {
         border-radius: 0;
         padding: 30px 20px;
         margin-top: 15px;
+
     }
 
     .hebergements-and-populaires a {
@@ -761,12 +764,18 @@ nav {
         margin-top: 0;
     }
 
-    .more-title h2 {
+    .populaires-cards .card {
+        margin-top: 15px;    
+    }
+
+    .hebergements-cards .card {
         margin-top: 15px;
     }
 
     .activitesMars .cardContainer {
+        display: flex;
         flex-direction: column;
+        gap: 15px;
         align-items: center; /* Centre les cartes */
     }
 
