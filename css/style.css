@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:35px; /*espacement entre : header, infogroup, card, activités et footer*/
+    
 }
 
 /*conteneur qui prend toute la page*/
@@ -91,6 +91,15 @@ h2 {
     font-size: 18px;
     line-height: 21.13px;
     letter-spacing: 0%;
+}
+
+h3 {
+    font-family: Raleway;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.78px;
+    letter-spacing: 0%;
+
 }
 
 p {
@@ -238,6 +247,16 @@ nav {
     display: none;
 }
 
+/* Cacher l'icône de la loupe sur les écrans larges (PC) */
+.loupe-icon {
+    display: none;
+}
+
+/* Cacher le texte "Rechercher" sur les écrans mobiles */
+.text-button {
+    display: inline;
+}
+
 /*logo i + texte*/
 .textInfo {
     display: flex;
@@ -383,7 +402,6 @@ nav {
 .populaires-cards .card {
     display: flex;
     margin-top: 33px;
-    box-shadow: 0px 3px 15px 0px #0000001A;
 
 }
 
@@ -416,17 +434,6 @@ nav {
     margin-bottom: 5px;
 }
 
-
-/* Cacher l'icône de la loupe sur les écrans larges (PC) */
-.loupe-icon {
-    display: none;
-}
-
-/* Cacher le texte "Rechercher" sur les écrans mobiles */
-.text-button {
-    display: inline;
-}
-
 .more-title h2 {
     margin-top: 33px;
 }
@@ -437,10 +444,11 @@ nav {
 .activitesMars {
     display: flex;
     flex-direction: column;
+    padding: 30px;
+    margin-bottom: 35px;
 }
 
 .activitesMars h1{
-    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -449,17 +457,14 @@ nav {
     display: flex;
     flex-wrap: wrap; /* Retour à la ligne si nécessaire */
     gap: 30px; /* Espace entre les cartes */
-    justify-content: space-around;
 }
 
 /* Liens (cards) */
 .activitesMars a {
     display: flex;
     flex-direction: column;
-    flex: 1 1 calc(25% - 30px); /* 4 cartes par ligne avec gap */
-    max-width: calc(25% - 30px);
+    flex: 1 ;
     border-radius: 20px;
-    box-shadow: 0px 3px 15px 0px #0000001A;
 }
 
 /* Contenu des cartes */
@@ -467,13 +472,14 @@ nav {
     height: 439px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 3px 15px 0px #0000001A;
+
 }
 
 /* Image dans les cartes */
 .activitesMars img {
     width: 100%;
     height: 380px;
-    object-fit: cover; 
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -740,14 +746,28 @@ nav {
     }
 
     .activitesMars .cardContainer {
-        display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        align-items: center; /* Centre les cartes */
     }
 
     .activitesMars a {
-        max-width:max-content;
-        flex: 1;
+        max-width: 335px;
+        width: 100%; /* Définit une largeur uniforme */
+    }
+
+
+    .activitesMars .card {
+        height: auto; /* S'ajuste au contenu */
+        margin: 0;
+        padding: 0;
+    }
+
+    .activitesMars img {
+        height: 141px; /* Redimensionne l'image pour ne pas être trop grande */
+    }
+
+    .activitesMars .card-txt {
+        height: 50px; /* Ajuste la hauteur du texte */
     }
 
     
