@@ -13,8 +13,6 @@
     color: var(--main-color);
 }
 
-
-
 /*site centré*/
 body {
     display: flex;
@@ -26,7 +24,7 @@ body {
 .main-box {
     display: flex;
     flex-direction: column;
-    gap:35px;
+    gap:35px; 
 }
 
 /*conteneur qui prend toute la page*/
@@ -37,13 +35,12 @@ body {
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
-    margin: auto;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Les dimensions incluent padding, margin et bordures. Utile en responsive notamment */ 
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* hérite de la couleur de l'élément parent*/
+    text-decoration: none; /* pas de couleur bien du lien par défaut */
 }
 
 .section-title {
@@ -64,7 +61,7 @@ a {
     object-fit: cover;
 }
 
-/*taille de la police dans les cadres*/
+/*taille de la police dans les cards*/
 .card-title {
     font-size: 16px;
 }
@@ -119,16 +116,12 @@ p {
     display: flex;
     align-items: flex-start ;
     justify-content: space-between;
-    width: 100%;
-    position: relative;
-    margin-top: -6px; /* fait remonter le sur-conteneur des liens de navigation pour que la barre touche le bord de l'écran*/
+    margin-top: -6px; /* fait remonter le sur-conteneur des liens de navigation pour que la barre touche le bord de l'écran, je n'ai pas trouvé mieux*/
 }
 
-
 /*emplacement et taille des liens de navigations en haut à droite*/
-.hebergementsEtActivités { 
+.hebergements-activites { 
     display: flex;
-    align-items: flex-start;
     gap: 30px;
 }
 
@@ -140,14 +133,14 @@ p {
 /*propriétés des liens dans le header*/
 
 /* Barre bleue et texte bleu au survol */
-.hebergementsEtActivités a:hover {
-    color: #0065FC; /* Le texte devient bleu au survol */
-    border-top: 2px solid #0065FC; /* Bordure bleue au survol */
+.hebergements-activites a:hover {
+    color: var(--main-color); /* Le texte devient bleu au survol */
+    border-top: 2px solid var(--main-color); /* Bordure bleue au survol */
     margin-top: -2px; /* évite le décalage de texte au survol */
 }
 
-.hebergementsEtActivités p {
-    margin-top: 8px; /* Abaisse les liens de navigations pour qu'ils ne soient pas trop proche de l'écran*/
+.hebergements-activites p {
+    margin-top: 8px; /* Abaisse les liens de navigations pour qu'ils ne soient pas trop proche du bord de l'écran*/
 }
 
 .logoBooki {
@@ -164,14 +157,14 @@ p {
 
 
 /***groupe qui va du header aux hebergements et qui contient : h1+p+barre de recherche+filtres+i informatif***/
-.infoGroup {
+.info-group {
     display:flex;
     flex-direction: column;
     gap: 35px;
 }
 
 /*h1 et paragraphe dans la partie informative*/
-.headInfo {
+.head-info {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -190,21 +183,20 @@ p {
     width: 377px;
     height: 49px;
     background: #FFFFFF;
-    border: 1px solid #F2F2F2;
+    border: 1px solid var(--main-bg-color);
     border-radius: 15px;
 }
 
-/*fond gris sous le location dot*/
+/*fond gris sous le location-dot*/
 .location {
-    background-color: #F2F2F2;
+    background-color: var(--main-bg-color);
     width: 50px; 
     height: 49px; 
-    border-top-left-radius: 15px; 
-    border-bottom-left-radius: 15px;
+    border-radius: 15px 0 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /*empeche l'ecrasement du fond gris*/
+    flex-shrink: 0; /*empeche l'ecrasement du fond gris par la barre de recherche, celle ci-rétrécit au besoin */
 }
 
 /*location dot*/
@@ -217,23 +209,18 @@ p {
 .search-bar input {
     flex: 1;
     padding: 10px;
-    border: none;
-    outline: none;
+    border: none; /* supprime la bordure */
+    outline: none; /* supprime la bordure au survol */
 }
 /*bouton rechercher*/
 .search-bar button {
-    z-index: 2;  /* Assure que le bouton est au-dessus */
     width: 132px;
     height: 49px;
-    padding-top: 15px;
-    padding-right: 16px;
-    padding-bottom: 15px;
-    padding-left: 16px;
+    padding: 15px 16px;
     gap: 10px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border: 1px solid #0065FC;
-    background: #0065FC;
+    border-radius: 0 15px 15px 0;
+    border: 1px solid var(--main-color);
+    background: var(--main-color);
     font-family: Raleway;
     font-weight: 700;
     font-size: 18px;
@@ -241,10 +228,9 @@ p {
     letter-spacing: 0%;
     text-align: center;
     color: #FFFFFF;
-    pointer-events: auto; /* Assure que le bouton peut être cliqué */
 }
 
-/*action au survol*/
+/*action au survol, sans cela, pas d'interaction avec le bouton rechercher, moins intuitif pour l'utilisateur*/
 .search-bar button:hover {
     background: #0056b3;
 }
@@ -276,17 +262,17 @@ p {
 }
 
 /* Texte + le logo i */
-.textInfo {
+.text-info {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 /*logo i entouré*/
-.textInfo .borderIcon {
+.text-info .borderIcon {
     min-height: 24px;
     min-width: 24px;
-    border: 2px solid #F2F2F2;
+    border: 2px solid var(--main-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -299,7 +285,7 @@ p {
 
 /*** Partie filtres ***/
 
-.conteneurFiltres {
+.filter-container {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -307,7 +293,7 @@ p {
     gap : 15px;
 }
 
-.filtreBox {
+.filter-box {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
@@ -315,7 +301,7 @@ p {
 
 
 /* Propriétés des boutons*/
-.bouton {
+.filter-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,12 +316,9 @@ p {
     font-weight: 700;
     font-size: 17px;
     color: #000;
-    
-
 }
 
-
-.bouton:hover {
+.filter-button:hover {
     background-color: var(--filter-bg-color);
 }
 
@@ -376,19 +359,16 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 .hebergements-cards .card {
     margin-top: 33px;
 }
 
-
 .hebergements-cards img {
     width: 100%;
     max-height: 124px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 20px 20px 0 0 ;
 }
 
 .hebergements-cards .card-content {
@@ -428,14 +408,12 @@ p {
 .populaires-cards .card {
     display: flex;
     margin-top: 33px;
-
 }
 
 .populaires-cards img {
     width: 33%;
     height: 136px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 20px 0 0 20px;
 }
 
 .populaires-cards .card-content {
@@ -467,58 +445,56 @@ p {
 
 /***** Activités à Marseille *****/
 
-.activitesMars {
+.activites-container {
     display: flex;
     flex-direction: column;
     padding: 30px;
 }
 
-.activitesMars h1{
+.activites-container h1{
     margin-bottom: 30px;
 }
 
 /* Conteneur principal des cartes */
-.activitesMars .cardContainer {
+.activites-container .card-container {
     display: flex;
     flex-wrap: wrap; /* Retour à la ligne si nécessaire */
     gap: 30px; /* Espace entre les cartes */
 }
 
 /* Liens (cards) */
-.activitesMars a {
+.activites-container a {
     display: flex;
     flex-direction: column;
-    flex: 1 ;
+    flex: 1 ; /* toutes les cards ont la même taille */
     border-radius: 20px;
 }
 
 /* Contenu des cartes */
-.activitesMars .card {
+.activites-container .card {
     height: 439px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 3px 15px 0px #0000001A;
-
+    filter: drop-shadow (0px 3px 15px 0px #0000001A);
 }
 
 /* Image dans les cartes */
-.activitesMars img {
+.activites-container img {
     width: 100%;
     height: 380px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-.activitesMars .card-txt {
+.activites-container .card-txt {
     display: flex;
     align-items: center;
     width: 100%;
     height: 59px;
     padding-left: 19px;
-
 }
-/***Footer***/
 
+/***Footer***/
 
 .footer-container {
     display: flex;
@@ -527,7 +503,7 @@ p {
     gap: 10%; /* Espacement flexible entre les sections */
     max-width: 1440px;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: var(--main-bg-color);
 }
 
 .footer-section {
@@ -535,8 +511,6 @@ p {
     min-width: 200px; /* Empêche les sections de devenir trop petites */
     max-width: 300px; /* Évite que les sections soient trop grandes */
 }
-
-
 
 .footer-section ul {
     list-style: none;
@@ -546,10 +520,6 @@ p {
 .footer-section ul li {
     margin-bottom: 15px;
 }
-
-
-
-
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
@@ -594,14 +564,13 @@ p {
 
     .main-container { /*prend toute la largeur de l'écran pour un meilleur affichage mobile*/
         padding: 0;
-        
     }
 
     body {
         margin: 0;
     }
     
-    .infoGroup, .textInfo {
+    .info-group, .text-info {
         margin-left: 8px;
         margin-right: 8px;
     }
@@ -609,7 +578,6 @@ p {
     header {
         margin-top: 8px;
     }
-
 
 /*** Partie responsive nav ***/
 
@@ -627,7 +595,7 @@ p {
     }
 
     /* Pour centrer les liens sur mobile */
-    .hebergementsEtActivités {
+    .hebergements-activites {
         display: flex;
         justify-content: space-around; /* Centrer les éléments horizontalement */
         align-items: center; /* Centrer verticalement */
@@ -636,10 +604,8 @@ p {
         position: relative; /* Pour positionner les barres en bas */
     }
 
-
-
     /* Propriétés des liens dans le header */
-    .hebergementsEtActivités a {
+    .hebergements-activites a {
         text-decoration: none; /* Pour enlever le soulignement des liens */
         color: black; /* Change la couleur des liens */
         position: relative; /* Nécessaire pour positionner la barre au-dessus */
@@ -650,7 +616,7 @@ p {
         align-items: center;
     }
 
-    .hebergementsEtActivités a:hover {
+    .hebergements-activites a:hover {
         border-top: none;
         padding-top: 2px; /* empêche le décalage du texte au survol*/
     }
@@ -661,7 +627,7 @@ p {
         position: absolute;
         bottom: 0;
         height: 3px; /* Hauteur de la barre */
-        background-color: #f2f2f2; /* Couleur grise */
+        background-color: var(--main-bg-color); /* Couleur grise */
         width: 50%; /* Chaque barre grise prend 50% de la largeur */
     }
 
@@ -677,12 +643,12 @@ p {
 
     /* Lorsqu'on survole "Hébergements", la barre de gauche devient bleue */
     .hebergement-link:hover ~ .barre-grise-gauche { /** l'utilisation de "~" permet de prendre un élément frère, au lieu d'un enfant**/
-        background-color: #0065FC; /* Couleur bleue */
+        background-color: var(--main-color); /* Couleur bleue */
     }
 
     /* Lorsqu'on survole "Activités", la barre de droite devient bleue */
     .activites-link:hover ~ .barre-grise-droite {
-        background-color: #0065FC; /* Couleur bleue */
+        background-color: var(--main-color); /* Couleur bleue */
     }
     
     /*** Partie responsive barre de recherche ***/
@@ -709,32 +675,28 @@ p {
         box-shadow: 0px 4px 4px 0px #00000040;
     }
 
-    .conteneurFiltres {
+    .filter-container {
         display: flex;
         align-items: flex-start;  /* Aligne tout à gauche */
         gap: 20px;  /* Ajoute un espace entre les éléments */
         flex-direction: column;
     }
 
-    .filtreBox {
+    .filter-box{
         display: flex;
         flex: 1;
     }
 
-    .boutonsFiltres {
-        display: flex;
-        flex-wrap: wrap;  /* Permet aux boutons de passer sur deux lignes */
-        gap: 15px;
-    }
-
-    .bouton {
+    .filter-button {
         width: 47%;
         margin: 0;  /* Enlève les marges autour des boutons */
     }
-    .textInfo p {
+    .text-info p {
         display: flex;
         flex-wrap: wrap;
     }
+
+    /*** Parties cards ***/
 
     .hebergements-and-populaires {
         display: flex;
@@ -772,36 +734,32 @@ p {
         margin-top: 15px;
     }
 
-    .activitesMars .cardContainer {
+    .activites-container .card-container {
         display: flex;
         flex-direction: column;
         gap: 15px;
         align-items: center; /* Centre les cartes */
     }
 
-    .activitesMars a {
+    .activites-container a {
         max-width: 335px;
         width: 100%; /* Définit une largeur uniforme */
     }
 
 
-    .activitesMars .card {
+    .activites-container .card {
         height: auto; /* S'ajuste au contenu */
         margin: 0;
         padding: 0;
     }
 
-    .activitesMars img {
+    .activites-container img {
         height: 141px; /* Redimensionne l'image pour ne pas être trop grande */
     }
 
-    .activitesMars .card-txt {
+    .activites-container .card-txt {
         height: 50px; /* Ajuste la hauteur du texte */
     }
-
-    
-
-
 }
 
     /* ... */
